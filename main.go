@@ -21,7 +21,7 @@ type mynewStruct struct {
 func main() {
 
 	runtime.GOMAXPROCS(1)
-	//go abcGen()
+	go abcGen()
 	time.Sleep(10 * time.Millisecond)
 	obj := new(mynewStruct)
 	obj.name = "My Name"
