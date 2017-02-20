@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"runtime"
-	"time"
 )
 
 const (
@@ -20,19 +19,15 @@ type mynewStruct struct {
 
 func main() {
 
-	runtime.GOMAXPROCS(1)
+	runtime.GOMAXPROCS(5)
 	go abcGen()
-	time.Sleep(10 * time.Millisecond)
+	//time.Sleep(10 * time.Millisecond)
 	obj := new(mynewStruct)
 	obj.name = "My Name"
 	obj.number = 105
 	obj.addressdetails = "line1"
 
 	fmt.Println(obj)
-
-	//	a := make([]int, 10, 11)
-	// fmt.Println(a)
-	// println(len(a))
 	x := make(map[string]string)
 	x["first"] = "First Item"
 	fmt.Println(x)
@@ -40,6 +35,35 @@ func main() {
 
 	p := New(100, "Another Name", "Some Address")
 	fmt.Println(p)
+
+	m := make(map[int]string)
+
+	m[1] = "Uno"
+	m[2] = "Duos"
+	m[3] = "Threz"
+
+	for idx, val := range m {
+		println(idx, val)
+	}
+
+	n := []string{"this", "is", "great"}
+
+	for _, value := range n { // foreach (var x in n)
+		println(value)
+	}
+
+	t := make(map[int]mynewStruct)
+
+	t[1] = *New(44, "Forty Four", "My Address")
+	t[2] = *New(55, "Fifty Five", "My new Address")
+	t[3] = *New(66, "sdfsdf", "sfdsf")
+	cc := New(77, "sdfsdf", "qweqwe")
+
+	fmt.Println(t)
+	fmt.Println(*cc)
+
+	AnotherFunction(100)
+
 }
 
 func abcGen() {
@@ -63,4 +87,10 @@ func New(numberparam int, nameparam, addressparam string) *mynewStruct {
 	// return obj
 
 	return &mynewStruct{number: numberparam, name: nameparam, addressdetails: addressparam}
+}
+
+//AnotherFunction just prints an integer
+func AnotherFunction(number int) *mynewStruct {
+	fmt.Print(number)
+	return nil
 }
