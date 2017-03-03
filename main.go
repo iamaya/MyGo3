@@ -27,7 +27,12 @@ func main() {
 	obj.number = 105
 	obj.addressdetails = "line1"
 
-	fmt.Println(obj)
+	somenew := obj
+	obj.name = "New Name"
+	fmt.Println(*obj)
+
+	fmt.Println("SOMENEW **")
+	fmt.Println(somenew)
 	x := make(map[string]string)
 	x["first"] = "First Item"
 	fmt.Println(x)
